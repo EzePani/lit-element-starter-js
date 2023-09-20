@@ -50,6 +50,7 @@ export class MyElement extends LitElement {
   render() {
     return html`
       <h1>${this.sayHello(this.name)}!</h1>
+      <button @click=${this._showAlert} part="button">Show alert</button>
       <button @click=${this._onClick} part="button">
         Click Count: ${this.count}
       </button>
@@ -60,6 +61,10 @@ export class MyElement extends LitElement {
   _onClick() {
     this.count++;
     this.dispatchEvent(new CustomEvent('count-changed'));
+  }
+
+  _showAlert() {
+    alert('Holaa!');
   }
 
   /**
